@@ -1,12 +1,20 @@
 import { Isoftware} from "./interfaz";
 
- export function filtrar(price: number) {
-    const filteredSoftware = Isoftware.filter((Software: Isoftware) => filteredSoftware.price > price);
-  
-    if (filteredSoftware.length > 0) {
-      console.log("precio del software encontrado:");
-      console.log(filteredSoftware);
-    } else {
-      console.log("precio del software no encontrado.");
-    }
-  }
+// Función que filtra los software por precio
+export function filtrar(filteredSoftware: Isoftware[], price: Number): Isoftware[] {
+  return filteredSoftware.filter((Software) => Software.price <= price);
+}
+
+// Llamada a la función con un precio referencial de 12
+const filteredSoftware = filtrar(Isoftware, 12);
+console.log(filteredSoftware);
+
+
+// Función de callback para mostrar los elementos encontrados por consola
+function mostrar(filteredItems: Isoftware[]): void {
+  console.log("Elementos encontrados:");
+  console.log(filteredItems);
+}
+
+// Llamada a la función de callback para mostrar los elementos encontrados por consola
+mostrar(filteredSoftware);
